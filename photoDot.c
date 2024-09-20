@@ -46,6 +46,7 @@ int main(){
 
     dotty(file_buffer);
 
+    printf("App Exit~\n");
       
     return 0;
 }
