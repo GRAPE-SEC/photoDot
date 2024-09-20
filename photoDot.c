@@ -8,10 +8,6 @@
 void dotty(char* buf){
     char va[400];
 
-    FILE* file = fopen("data","r");
-    fread(buf, 1, 512, file);
-    fclose(file);
-
     strcpy(va,buf);
 
     int i;
@@ -39,6 +35,10 @@ int main(){
     printf("Press Enter to read data...\n");
 
     getchar(); // Wait for Enter key press
+
+    FILE* file = fopen("data","r");
+    fread(buf, 1, 512, file);
+    fclose(file);
 
     dotty(buf);
       
