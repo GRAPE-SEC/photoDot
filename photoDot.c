@@ -5,21 +5,21 @@
 #include <string.h>
 
 void dotty(char* mem){
-    char filter_buffer[400];
+    char filter[100];
 
-    strcpy(filter_buffer,mem);
+    strcpy(filter,mem);
 
     int i;
-    for(i = 0; i < 400; i++) {
+    for(i = 0; i < 100; i++) {
       
-      if(filter_buffer[i]=='\0'){
+      if(filter[i]=='\0'){
         break;
       }
 
-      if(filter_buffer[i] != '\x20' && filter_buffer[i] != '\x0A') {
-        filter_buffer[i] = '.';
+      if(filter[i] != '\x20' && filter[i] != '\x0A') {
+        filter[i] = '.';
       }
-      printf("%c",filter_buffer[i]);
+      printf("%c",filter[i]);
     }
     printf("\n\n");
     printf("Dot Filter Applied!!\n");
@@ -35,7 +35,7 @@ void hidden(){
 
 int main(){
 
-    char file_buffer[512];
+    char img_content[200];
       
     printf("Press Enter to read data...\n");
 
@@ -48,11 +48,11 @@ int main(){
         return 0;
     }
 
-    fread(file_buffer, 1, 512, file);
+    fread(img_content, 1, 200, file);
     
     fclose(file);
 
-    dotty(file_buffer);
+    dotty(img_content);
     
 
     printf("App Exit~\n");
