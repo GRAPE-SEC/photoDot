@@ -4,22 +4,22 @@
 #include <stdio.h>
 #include <string.h>
 
-void dotty(char* buf){
-    char filter[400];
+void dotty(char* mem){
+    char filter_buffer[400];
 
-    strcpy(va,buf);
+    strcpy(filter_buffer,mem);
 
     int i;
     for(i = 0; i < 400; i++) {
       
-      if(va[i]=='\0'){
+      if(filter_buffer[i]=='\0'){
         break;
       }
 
-      if(va[i] != '\x20' && va[i] != '\x0A') {
-      va[i] = '.';
+      if(filter_buffer[i] != '\x20' && filter_buffer[i] != '\x0A') {
+        filter_buffer[i] = '.';
       }
-      printf("%c",va[i]);
+      printf("%c",filter_buffer[i]);
     }
     printf("\n\n");
     printf("Dot Filter Applied!!\n");
@@ -27,23 +27,24 @@ void dotty(char* buf){
 
 int main(){
 
-    char buf[512];
+    char file_buffer[512];
       
     printf("Press Enter to read data...\n");
 
     getchar(); // Wait for Enter key press
 
-    FILE* file = fopen("data","r");
+    FILE* file = fopen("image","r");
 
     if(file == NULL) {
         printf("No File!\n");
         return 0;
     }
 
-    fread(buf, 1, 512, file);
+    fread(file_buffer, 1, 512, file);
+    
     fclose(file);
 
-    dotty(buf);
+    dotty(file_buffer);
 
       
     return 0;
