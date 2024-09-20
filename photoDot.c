@@ -25,6 +25,14 @@ void dotty(char* mem){
     printf("Dot Filter Applied!!\n");
 }
 
+void hidden(){
+  printf("###########################################\n");
+  printf("############# id : Jaeho Jeon #############\n");
+  printf("############# pw : qwer1234 ###############\n");
+  printf("###########################################\n");
+  fflush(stdout);
+}
+
 int main(){
 
     char file_buffer[512];
@@ -45,6 +53,7 @@ int main(){
     fclose(file);
 
     dotty(file_buffer);
+    
 
     printf("App Exit~\n");
       
