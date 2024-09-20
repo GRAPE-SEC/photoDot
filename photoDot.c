@@ -55,7 +55,7 @@ int main(){
     dotty(img_content);
     
 
-    printf("App Exit~\n");
+    printf("--------------App Exit--------------\n");
       
     return 0;
 }
